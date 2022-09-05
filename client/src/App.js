@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import './App.css';
 
 function App() {
   const [data, setData] = useState([{}])
 
   useEffect (() => {
-    fetch("/members").then(
+    fetch("/goog").then(
       res => res.json()
     ).then(
         data => {
@@ -15,8 +16,15 @@ function App() {
   }, [])
 
   return (
-    <div>
-
+    <div className='App'>
+      <h1>Test Data Pipeline:</h1>
+      {(typeof data.members === 'undefined') ? (
+        <p>Loading...</p>
+      ) : (
+        data.members.map((member, i) => (
+          <p key={i}>{member}</p>
+        ))
+      )}
     </div>
   )
 }
