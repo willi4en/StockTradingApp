@@ -1,0 +1,4 @@
+mysql_host: "localhost"
+mysql_user: "MainDataAdmin"
+mysql_password: "Fi*3_je#riA4Nil*"
+mysql_db: "stockdata"
