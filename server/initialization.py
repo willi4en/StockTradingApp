@@ -63,3 +63,7 @@ def createAccount():
         return redirect(url_for('landingPage'))
     elif request.method == 'GET':
         return render_template('createAccount.html')
+
+
+if __name__ == '__main__':
+    app.run()
