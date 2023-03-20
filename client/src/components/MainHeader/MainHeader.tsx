@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
+import './MainHeader.scss';
 
-function Header() {
+function MainHeader() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-secondary" id="navbar-main">
       <div className="container-fluid">
@@ -67,4 +68,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default MainHeader;

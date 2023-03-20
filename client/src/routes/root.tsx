@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
+import MainHeader from '../components/MainHeader/MainHeader';
 import './root.scss';
 
 function Root() {
   return (
     <>
-      <Header />
+      <MainHeader />
       <div id="main" className="container">
         <Outlet />
       </div>
