@@ -11,7 +11,8 @@ Paper Trading App using TD Ameritrade's API for stock data, React as front-end, 
 
 1. Navigate to the 'server' directory
 2. Create a local virtual environment by running `python -m venv venv`
-3. Install local python packages with `pip install flask python-dotenv`
+3. Source the virtual environment with `source venv/Scripts/activate`. Doing this before installing the python dependencies ensures they are installed in the virtual environment
+4. Install local python packages with `pip install -r requirements.txt`
 
 # To run the project for development
 

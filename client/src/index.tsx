@@ -5,7 +5,7 @@ import Root from './routes/root';
 import ErrorPage from './errorPage';
 import Main from './routes/main/main';
 import About from './routes/about/about';
-import SymbolQuote from './routes/symbolLookup/symbolQuote';
+import SymbolQuote from './routes/symbolQuote/symbolQuote';
 import './index.scss';
 
 const router = createBrowserRouter([
