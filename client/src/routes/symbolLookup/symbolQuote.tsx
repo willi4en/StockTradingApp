@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import './symbolQuote.scss';
 
 function SymbolQuote() {
   const [quote, setQuote] = useState({
@@ -24,8 +23,8 @@ function SymbolQuote() {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Quote Data For {pathname}</h1>
+    <div>
+      <h1>Quote Data For {pathname.toUpperCase()}</h1>
       <div>{quote.c}</div>
     </div>
   );

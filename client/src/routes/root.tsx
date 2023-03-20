@@ -1,15 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Header from '../components/Header';
 import './root.scss';
 
 function Root() {
   return (
-    // add header here
-    <div id="main" className="container">
-      <div>This app works!</div>
-      <Outlet />
-    </div>
-    // add footer here
+    <>
+      <Header />
+      <div id="main" className="container">
+        <Outlet />
+      </div>
+    </>
   );
 }
 
