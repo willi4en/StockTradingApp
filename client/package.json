@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start-frontend": "react-scripts start",
-    "start-backend": "cd ../server && flask -A main run",
+    "start-backend": "cd ../server && flask run",
     "build": "react-scripts build"
   },
   "eslintConfig": {

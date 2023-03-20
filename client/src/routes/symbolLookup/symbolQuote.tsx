@@ -12,7 +12,7 @@ function SymbolQuote() {
     pc: 0,
     t: 0,
   });
-  const pathname = useLocation().pathname.slice(1);
+  const pathname = useLocation().pathname.slice(8, 12);
 
   useEffect(() => {
     fetch(`/${pathname}`)
@@ -23,10 +23,10 @@ function SymbolQuote() {
   }, []);
 
   return (
-    <div>
+    <>
       <h1>Quote Data For {pathname.toUpperCase()}</h1>
       <div>{quote.c}</div>
-    </div>
+    </>
   );
 }
 
