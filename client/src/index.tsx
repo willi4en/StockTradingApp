@@ -6,6 +6,7 @@ import ErrorPage from './errorPage';
 import Main from './routes/main/main';
 import About from './routes/about/about';
 import SymbolQuote from './routes/symbolQuote/symbolQuote';
+import Search from './routes/search/search';
 import './index.scss';
 
 const router = createBrowserRouter([
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: '/stocks/:symbol',
         element: <SymbolQuote />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/search',
+        element: <Search />,
         errorElement: <ErrorPage />,
       },
     ],

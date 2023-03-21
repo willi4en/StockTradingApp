@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { changeActiveLink } from '../../utils/changeActiveLink';
+import { changeActiveLink } from '../../utils/helpers';
 
 function About() {
   useEffect(() => {

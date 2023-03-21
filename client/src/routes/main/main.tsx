@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { changeActiveLink } from '../../utils/changeActiveLink';
+import { changeActiveLink } from '../../utils/helpers';
 
 function Main() {
   useEffect(() => {
@@ -23,6 +23,9 @@ function Main() {
         role="button"
       >
         View MSFT
+      </a>
+      <a className="btn btn-outline-danger mt-2" href="/search" role="button">
+        Search for Stocks
       </a>
     </>
   );

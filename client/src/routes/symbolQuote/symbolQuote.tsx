@@ -12,10 +12,10 @@ function SymbolQuote() {
     pc: 0,
     t: 0,
   });
-  const pathname = useLocation().pathname.slice(8, 12);
+  const pathname = useLocation().pathname.slice(8);
 
   useEffect(() => {
-    fetch(`/${pathname}`)
+    fetch(`/stocks/${pathname}`)
       .then((res) => res.json())
       .then((data) => {
         setQuote(data);
