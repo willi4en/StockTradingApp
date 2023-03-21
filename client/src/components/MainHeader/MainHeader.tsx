@@ -1,9 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import './MainHeader.scss';
 
 function MainHeader() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate({
+      pathname: '/search',
+      search: `?stock=${event.target[0].value}`,
+    });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-secondary" id="navbar-main">
       <div className="container-fluid">
@@ -39,9 +49,14 @@ function MainHeader() {
               </Link>
             </li>
           </ul>
-          <form className="d-flex me-auto" role="search">
+          <form
+            className="d-flex me-auto"
+            role="search"
+            onSubmit={handleSubmit}
+          >
             <input
               className="form-control me-2"
+              name="stock"
               type="search"
               placeholder="Search for stocks..."
               aria-label="Search"

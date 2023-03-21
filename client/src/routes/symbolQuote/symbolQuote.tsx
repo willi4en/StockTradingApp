@@ -23,10 +23,10 @@ function SymbolQuote() {
   }, []);
 
   return (
-    <>
+    <div className="d-flex flex-column align-items-center">
       <h1>Quote Data For {pathname.toUpperCase()}</h1>
       <div>{quote.c}</div>
-    </>
+    </div>
   );
 }
 

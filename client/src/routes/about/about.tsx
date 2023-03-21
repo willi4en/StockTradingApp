@@ -6,7 +6,11 @@ function About() {
     changeActiveLink('/about');
   });
 
-  return <div>About Us</div>;
+  return (
+    <div className="d-flex flex-column align-items-center">
+      <h1>About Us</h1>
+    </div>
+  );
 }
 
 export default About;

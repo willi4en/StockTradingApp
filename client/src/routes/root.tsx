@@ -7,7 +7,7 @@ function Root() {
   return (
     <>
       <MainHeader />
-      <div id="main" className="container">
+      <div id="main" className="d-flex flex-column h-100 p-4">
         <Outlet />
       </div>
     </>

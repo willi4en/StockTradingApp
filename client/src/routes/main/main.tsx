@@ -7,8 +7,8 @@ function Main() {
   });
 
   return (
-    <>
-      <div className="mb-4">Homepage</div>
+    <div className="d-flex flex-column align-items-center">
+      <h1 className="mb-4">Homepage</h1>
       <div>Quick Links (DEV ONLY)</div>
       <a
         className="btn btn-outline-danger mt-2"
@@ -27,7 +27,7 @@ function Main() {
       <a className="btn btn-outline-danger mt-2" href="/search" role="button">
         Search for Stocks
       </a>
-    </>
+    </div>
   );
 }
 
