@@ -37,7 +37,7 @@ function MainHeader() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mb-lg-0 me-4">
+          <ul className="navbar-nav mb-lg-0 me-3">
             <li className="nav-item">
               <Link to="" className="nav-link">
                 Home
