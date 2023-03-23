@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import MainHeader from '../components/MainHeader/MainHeader';
-import './root.scss';
+import './appWrapper.scss';
 
-function Root() {
+function AppWrapper(props) {
   return (
     <>
-      <MainHeader />
+      <MainHeader {...props} />
       <div id="main" className="main">
         <Outlet />
       </div>
@@ -14,4 +14,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default AppWrapper;

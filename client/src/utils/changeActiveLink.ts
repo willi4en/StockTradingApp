@@ -1,4 +1,4 @@
-export const changeActiveLink = (page: string): void => {
+const changeActiveLink = (page: string): void => {
   const oldlink = document.querySelector('.active');
   oldlink?.classList.remove('active');
   oldlink?.removeAttribute('aria-current');
@@ -10,3 +10,5 @@ export const changeActiveLink = (page: string): void => {
   navlink?.classList.add('active');
   navlink?.setAttribute('aria-current', 'page');
 };
+
+export default changeActiveLink;

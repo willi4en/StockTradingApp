@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import './search.scss';
 
 function Search() {
   const [searchParams, setSearchParams]: [URLSearchParams, any] =
@@ -35,7 +36,12 @@ function Search() {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center">
+    <div
+      className={
+        'd-flex flex-column align-items-center ' +
+        (!stockData ? 'center-search' : '')
+      }
+    >
       <h1 className="mb-4 justify-self-start mt-auto">Search for Stocks</h1>
       {!stockData && !isLoading && (
         <form className="d-flex" role="search" onSubmit={handleSubmit}>

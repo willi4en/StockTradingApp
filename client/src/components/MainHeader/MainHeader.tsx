@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import './MainHeader.scss';
 
-function MainHeader() {
+function MainHeader(props: { token: string; removeToken: () => void }) {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -39,12 +39,12 @@ function MainHeader() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-lg-0 me-3">
             <li className="nav-item">
-              <Link to="" className="nav-link">
+              <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="about" className="nav-link">
+              <Link to="/about" className="nav-link">
                 About
               </Link>
             </li>
@@ -66,16 +66,32 @@ function MainHeader() {
             </button>
           </form>
           <ul className="navbar-nav mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="" className="nav-link" aria-current="page">
-                Signup
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="" className="nav-link">
-                Login
-              </Link>
-            </li>
+            {!props.token ? (
+              <>
+                <li className="nav-item">
+                  <Link to="/" className="nav-link" aria-current="page">
+                    Signup
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link
+                    to="/login"
+                    className="nav-link"
+                    onClick={props.removeToken}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
