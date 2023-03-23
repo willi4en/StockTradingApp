@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './login.scss';
 
-function Login(props: { setToken: (string) => void }) {
+function Login(props: { setToken: (string) => void; token: string }) {
   const [loginForm, setLoginForm] = useState({
     email: '',
     password: '',
   });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (props.token) {
+        navigate('/app');
+        clearInterval(intervalId);
+      }
+    }, 100);
+  }, [props.token, navigate]);
+
   const logUserIn = (event) => {
+    event.preventDefault();
     axios({
       method: 'POST',
       url: '/token',
@@ -34,9 +44,6 @@ function Login(props: { setToken: (string) => void }) {
       email: '',
       password: '',
     });
-
-    event.preventDefault();
-    navigate('/app');
   };
 
   const handleChange = (event) => {

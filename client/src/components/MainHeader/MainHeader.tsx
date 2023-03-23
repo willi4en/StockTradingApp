@@ -37,18 +37,29 @@ function MainHeader(props: { token: string; removeToken: () => void }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mb-lg-0 me-3">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
-                About
-              </Link>
-            </li>
-          </ul>
+          {!props.token ? (
+            <ul className="navbar-nav mb-lg-0 me-3">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link">
+                  About
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav mb-lg-0 me-3">
+              <li className="nav-item">
+                <Link to="/app" className="nav-link">
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
+          )}
+
           <form
             className="d-flex me-auto"
             role="search"

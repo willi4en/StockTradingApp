@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from 'react-router-dom';
 import AppWrapper from './routes/appWrapper';
 import ErrorPage from './components/errorPage';
 import Main from './routes/main/main';
@@ -50,7 +54,7 @@ function App() {
         token && token !== '' && token !== undefined ? (
           <AppWrapper token={token} removeToken={removeToken} />
         ) : (
-          <Login setToken={setToken} />
+          <Navigate to="/login" />
         ),
       errorElement: <ErrorPage />,
       children: [
@@ -68,7 +72,7 @@ function App() {
     },
     {
       path: '/login',
-      element: <Login setToken={setToken} />,
+      element: <Login setToken={setToken} token={token} />,
       errorElement: <ErrorPage />,
     },
   ]);
