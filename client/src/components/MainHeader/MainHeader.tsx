@@ -51,32 +51,35 @@ function MainHeader(props: { token: string; removeToken: () => void }) {
               </li>
             </ul>
           ) : (
-            <ul className="navbar-nav mb-lg-0 me-3">
-              <li className="nav-item">
-                <Link to="/app" className="nav-link">
-                  Dashboard
-                </Link>
-              </li>
-            </ul>
+            <>
+              <ul className="navbar-nav mb-lg-0 me-3">
+                <li className="nav-item">
+                  <Link to="/app" className="nav-link">
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/app/search" className="nav-link">
+                    Search
+                  </Link>
+                </li>
+              </ul>
+              <form className="d-flex" role="search" onSubmit={handleSubmit}>
+                <input
+                  className="form-control me-2"
+                  name="stock"
+                  type="search"
+                  placeholder="Search for stocks..."
+                  aria-label="Search"
+                />
+                <button className="btn btn-outline-danger" type="submit">
+                  Search
+                </button>
+              </form>
+            </>
           )}
 
-          <form
-            className="d-flex me-auto"
-            role="search"
-            onSubmit={handleSubmit}
-          >
-            <input
-              className="form-control me-2"
-              name="stock"
-              type="search"
-              placeholder="Search for stocks..."
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-danger" type="submit">
-              Search
-            </button>
-          </form>
-          <ul className="navbar-nav mb-2 mb-lg-0">
+          <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
             {!props.token ? (
               <>
                 <li className="nav-item">

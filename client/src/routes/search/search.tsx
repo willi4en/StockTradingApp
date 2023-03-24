@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import changeActiveLink from '../../utils/changeActiveLink';
 import './search.scss';
 
 function Search() {
@@ -9,6 +10,10 @@ function Search() {
   const [isLoading, setIsLoading] = useState(false);
 
   const stock = searchParams.get('stock');
+
+  useEffect(() => {
+    changeActiveLink('/app/search');
+  });
 
   useEffect(() => {
     async function getStocks() {
@@ -61,6 +66,14 @@ function Search() {
       {stockData && (
         <div className="d-flex flex-column align-items-center">
           <h4>Total Results: {stockData.count}</h4>
+          <h6>
+            PLEASE NOTE: Not all stocks provided by the Finnhub API are
+            publically available
+          </h6>
+          <h6 className="mb-4">
+            If the stock details page shows nothing but zeros that stock is not
+            available to the public
+          </h6>
           <ul className="list-group">
             {stockData.result.map((stock) => (
               <li key={stock.symbol} className="list-group-item d-flex">

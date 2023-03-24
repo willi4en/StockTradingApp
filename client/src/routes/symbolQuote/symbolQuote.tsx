@@ -14,7 +14,7 @@ function SymbolQuote() {
     pc: 0,
     t: 0,
   });
-  const pathname = useLocation().pathname.slice(8);
+  const pathname = useLocation().pathname.slice(12);
 
   useEffect(() => {
     fetch(`/stocks/${pathname}`)

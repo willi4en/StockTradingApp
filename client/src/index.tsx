@@ -36,16 +36,6 @@ function App() {
           element: <About />,
           errorElement: <ErrorPage />,
         },
-        {
-          path: '/stocks/:symbol',
-          element: <SymbolQuote />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: '/search',
-          element: <Search />,
-          errorElement: <ErrorPage />,
-        },
       ],
     },
     {
@@ -61,6 +51,16 @@ function App() {
         {
           path: '/app',
           element: <Dashboard />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: 'stocks/:symbol',
+          element: <SymbolQuote />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: 'search',
+          element: <Search />,
           errorElement: <ErrorPage />,
         },
         {

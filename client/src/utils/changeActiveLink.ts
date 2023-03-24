@@ -4,8 +4,10 @@ const changeActiveLink = (page: string): void => {
   oldlink?.removeAttribute('aria-current');
 
   const navlink =
-    page === '/'
-      ? document.querySelectorAll("a[href='/']")[1]
+    page === '/' || page === '/app'
+      ? page === '/'
+        ? document.querySelectorAll("a[href='/']")[1]
+        : document.querySelectorAll("a[href='/app']")[1]
       : document.querySelector(`a[href='${page}']`);
   navlink?.classList.add('active');
   navlink?.setAttribute('aria-current', 'page');
