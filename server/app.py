@@ -1,7 +1,8 @@
 import json
+import time
 import finnhub
 from flask import Flask, request, jsonify
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone, date, time
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt, \
 get_jwt_identity, unset_jwt_cookies, jwt_required 
 
@@ -70,6 +71,12 @@ def get_quote(symbol):
 def get_stocks():
     stock = request.args.get('symbol')
     return(finnhub_client.symbol_lookup(stock))
+
+@api.route('/candlestick/<string:symbol>')
+def get_candlestick(symbol):
+    time_now = int(datetime.combine(date.today(), time.min).timestamp())
+    time_1yr_ago = time_now - (24 * 60 * 60 * 365)
+    return finnhub_client.stock_candles(symbol, 'D', time_1yr_ago, time_now)
 
 if __name__ == '__main__':
     api.run()
