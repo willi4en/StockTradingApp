@@ -87,7 +87,7 @@ function Search() {
                 </div>
                 <a
                   className="btn btn-danger ms-auto align-self-center"
-                  href={`/stocks/${stock.displaySymbol}`}
+                  href={`/app/stocks/${stock.displaySymbol}`}
                 >
                   View Stock Details
                 </a>
