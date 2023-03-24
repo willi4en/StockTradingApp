@@ -1,37 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './login.scss';
+import './signup.scss';
 
-function Login(props: { setToken: (string) => void; token: string }) {
-  const [loginForm, setLoginForm] = useState({
+function Signup() {
+  const [signupForm, setSignupForm] = useState({
     email: '',
     password: '',
   });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (props.token) {
-        navigate('/app');
-        clearInterval(intervalId);
-      }
-    }, 100);
-  }, [props.token, navigate]);
-
-  const logUserIn = (event) => {
+  const signUserUp = (event) => {
     event.preventDefault();
     axios({
       method: 'POST',
-      url: '/token',
+      url: '/signup',
       data: {
-        email: loginForm.email,
-        password: loginForm.password,
+        email: signupForm.email,
+        password: signupForm.password,
       },
     })
-      .then((response) => {
-        props.setToken(response.data.access_token);
-      })
+      // .then((response) => {
+      //   // do something here
+      // })
       .catch((error) => {
         if (error.response) {
           console.log(error.response);
@@ -40,15 +31,17 @@ function Login(props: { setToken: (string) => void; token: string }) {
         }
       });
 
-    setLoginForm({
+    setSignupForm({
       email: '',
       password: '',
     });
+
+    navigate('/login');
   };
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setLoginForm((prevNote) => ({
+    setSignupForm((prevNote) => ({
       ...prevNote,
       [name]: value,
     }));
@@ -56,7 +49,7 @@ function Login(props: { setToken: (string) => void; token: string }) {
 
   return (
     <div className="login-container">
-      <h1 className="mb-4">Login</h1>
+      <h1 className="mb-4">Signup</h1>
       <form className="d-flex flex-column justify-items-center">
         <div className="mb-3">
           <label htmlFor="emailInput" className="form-label">
@@ -65,39 +58,31 @@ function Login(props: { setToken: (string) => void; token: string }) {
           <input
             type="email"
             name="email"
-            value={loginForm.email}
+            value={signupForm.email}
             id="emailInput"
             className="form-control"
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-5">
           <label htmlFor="passwordInput" className="form-label">
             Password
           </label>
           <input
             type="password"
             name="password"
-            value={loginForm.password}
+            value={signupForm.password}
             id="passwordInput"
             className="form-control"
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-danger mb-5"
-          onClick={logUserIn}
-        >
-          Submit
+        <button type="submit" className="btn btn-danger" onClick={signUserUp}>
+          Create Account
         </button>
-        <h6 className="text-center">Dont have an account?</h6>
-        <a className="btn btn-danger" href="/signup">
-          Signup here
-        </a>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Signup;

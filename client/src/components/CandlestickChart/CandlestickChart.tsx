@@ -30,7 +30,6 @@ const CandlestickChart = (props: { symbol: string }) => {
               data: seriesList,
             },
           ]);
-          console.log(series);
           resolve();
         })
         .catch((error) => reject(error));

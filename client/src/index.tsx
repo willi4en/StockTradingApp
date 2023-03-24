@@ -9,11 +9,12 @@ import AppWrapper from './routes/appWrapper';
 import ErrorPage from './components/errorPage';
 import Main from './routes/main/main';
 import About from './routes/about/about';
-import SymbolQuote from './routes/symbolQuote/symbolQuote';
-import Search from './routes/search/search';
 import Login from './routes/login/login';
+import Signup from './routes/signup/signup';
 import Dashboard from './routes/dashboard/dashboard';
 import Profile from './routes/profile/profile';
+import SymbolQuote from './routes/symbolQuote/symbolQuote';
+import Search from './routes/search/search';
 import useToken from './utils/useToken';
 import './index.scss';
 
@@ -73,6 +74,11 @@ function App() {
     {
       path: '/login',
       element: <Login setToken={setToken} token={token} />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/signup',
+      element: <Signup />,
       errorElement: <ErrorPage />,
     },
   ]);

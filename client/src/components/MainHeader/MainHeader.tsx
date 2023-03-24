@@ -83,7 +83,7 @@ function MainHeader(props: { token: string; removeToken: () => void }) {
             {!props.token ? (
               <>
                 <li className="nav-item">
-                  <Link to="/" className="nav-link" aria-current="page">
+                  <Link to="/signup" className="nav-link" aria-current="page">
                     Signup
                   </Link>
                 </li>
