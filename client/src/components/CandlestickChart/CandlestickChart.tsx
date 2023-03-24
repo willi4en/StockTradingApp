@@ -57,12 +57,18 @@ const CandlestickChart = (props: { symbol: string }) => {
           width: parentWidth,
           id: 'candles',
           toolbar: {
-            show: false,
+            show: true,
           },
         },
         title: {
-          text: `Candlestick Chart - ${props.symbol}`,
+          text: `Candlestick Chart (1yr) - ${props.symbol}`,
           align: 'center',
+          style: {
+            fontFamily: 'Poppins',
+            fontSize: '18px',
+            color: 'white',
+            fontWeight: '400',
+          },
         },
         xaxis: {
           type: 'datetime',
@@ -75,6 +81,7 @@ const CandlestickChart = (props: { symbol: string }) => {
             enabled: false,
           },
         },
+        fontFamily: 'Poppins',
       });
 
       setSeries([
