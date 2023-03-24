@@ -28,7 +28,7 @@ function SymbolQuote() {
     <div className="w-100 d-flex flex-column flex-1">
       <h1 className="text-center">Quote Data For {pathname.toUpperCase()}</h1>
       <div className="d-flex flex-grow-1">
-        <div className="flex-basis d-flex flex-column align-items-center justify-content-center text-end">
+        <div className="flex-basis-1 d-flex flex-column align-items-center justify-content-center text-end px-5">
           <div className="text-start">
             <h2>Current price: ${quote.c.toFixed(2)}</h2>
             <h4>Opening price for the day: ${quote.o.toFixed(2)}</h4>
@@ -43,7 +43,7 @@ function SymbolQuote() {
             <h4>Percent change: {quote.dp}%</h4>
           </div>
         </div>
-        <div className="flex-basis d-flex flex-column align-items-center justify-content-center px-5">
+        <div className="flex-basis-2 d-flex flex-column align-items-center justify-content-center px-5">
           <CandlestickChart symbol={pathname} />
         </div>
       </div>
