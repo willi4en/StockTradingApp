@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './signup.scss';
 
 function Signup() {
   const [signupForm, setSignupForm] = useState({
+    firstName: '',
     email: '',
     password: '',
   });
@@ -16,6 +17,7 @@ function Signup() {
       method: 'POST',
       url: '/signup',
       data: {
+        firstname: signupForm.firstName,
         email: signupForm.email,
         password: signupForm.password,
       },
@@ -32,6 +34,7 @@ function Signup() {
       });
 
     setSignupForm({
+      firstName: '',
       email: '',
       password: '',
     });
@@ -51,6 +54,19 @@ function Signup() {
     <div className="login-container">
       <h1 className="mb-4">Signup</h1>
       <form className="d-flex flex-column justify-items-center">
+        <div className="mb-3">
+          <label htmlFor="nameInput" className="form-label">
+            First Name
+          </label>
+          <input
+            type="name"
+            name="firstName"
+            value={signupForm.firstName}
+            id="nameInput"
+            className="form-control"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="emailInput" className="form-label">
             Email Address
