@@ -12,7 +12,6 @@ import About from './routes/about/about';
 import Login from './routes/login/login';
 import Signup from './routes/signup/signup';
 import Dashboard from './routes/dashboard/dashboard';
-import Profile from './routes/profile/profile';
 import SymbolQuote from './routes/symbolQuote/symbolQuote';
 import Search from './routes/search/search';
 import useToken from './utils/useToken';
@@ -62,11 +61,6 @@ function App() {
         {
           path: 'search',
           element: <Search />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: 'profile',
-          element: <Profile />,
           errorElement: <ErrorPage />,
         },
       ],
