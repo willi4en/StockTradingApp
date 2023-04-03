@@ -31,7 +31,7 @@ function SymbolQuote(props: { token: string; userId: number }) {
     axios.get(`/stocks/${pathname}`).then((response) => {
       setQuote(response.data);
     });
-  }, [pathname]);
+  }, [pathname, count]);
 
   useEffect(() => {
     axios
@@ -52,7 +52,7 @@ function SymbolQuote(props: { token: string; userId: number }) {
       .then((response) => {
         setSells(response.data);
       });
-  }, [pathname, count]);
+  }, [pathname, props.userId, count]);
 
   const buyStock = (event) => {
     event.preventDefault();
