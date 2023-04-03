@@ -16,6 +16,7 @@ import Dashboard from './routes/dashboard/dashboard';
 import SymbolQuote from './routes/symbolQuote/symbolQuote';
 import BuySell from './routes/buySell/buySell';
 import Search from './routes/search/search';
+import Algorithms from './routes/algorithms/algorithms';
 import useToken from './utils/useToken';
 import './index.scss';
 
@@ -88,6 +89,11 @@ function App() {
         {
           path: 'buy-sell',
           element: <BuySell userId={userId} />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: 'algorithms',
+          element: <Algorithms />,
           errorElement: <ErrorPage />,
         },
       ],

@@ -68,6 +68,11 @@ function MainHeader(props: { token: string; removeToken: () => void }) {
                     Buy & Sell
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/app/algorithms" className="nav-link">
+                    Algorithms
+                  </Link>
+                </li>
               </ul>
               <form className="d-flex" role="search" onSubmit={handleSubmit}>
                 <input

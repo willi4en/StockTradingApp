@@ -40,9 +40,9 @@ function BuySell(props: { userId: number }) {
   }, [props.userId]);
 
   return (
-    <div className="container d-flex flex-column align-items-center center-content">
+    <div className="container d-flex flex-column flex-grow-1 align-items-center">
       <h1>Your Buys & Sells</h1>
-      <div className="d-flex w-100 justify-content-around mt-3">
+      <div className="container d-flex flex-grow-1 justify-content-around mt-3">
         <div className="text-center">
           <h2 className="mb-3">
             <u>Buys</u>
