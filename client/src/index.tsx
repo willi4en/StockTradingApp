@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from 'react-router-dom';
+import axios from 'axios';
 import AppWrapper from './routes/appWrapper';
 import ErrorPage from './components/errorPage';
 import Main from './routes/main/main';
@@ -13,12 +14,33 @@ import Login from './routes/login/login';
 import Signup from './routes/signup/signup';
 import Dashboard from './routes/dashboard/dashboard';
 import SymbolQuote from './routes/symbolQuote/symbolQuote';
+import BuySell from './routes/buySell/buySell';
 import Search from './routes/search/search';
 import useToken from './utils/useToken';
 import './index.scss';
 
 function App() {
   const { token, removeToken, setToken } = useToken();
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get('/user', {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        });
+        setUserId(response.data.user_id);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (token) {
+      fetchUserId();
+    }
+  }, [token]);
 
   const router = createBrowserRouter([
     {
@@ -55,12 +77,17 @@ function App() {
         },
         {
           path: 'stocks/:symbol',
-          element: <SymbolQuote />,
+          element: <SymbolQuote token={token} userId={userId} />,
           errorElement: <ErrorPage />,
         },
         {
           path: 'search',
           element: <Search />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: 'buy-sell',
+          element: <BuySell userId={userId} />,
           errorElement: <ErrorPage />,
         },
       ],

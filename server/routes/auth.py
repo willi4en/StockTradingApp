@@ -3,7 +3,7 @@ import sqlite3
 from flask import Blueprint, request, jsonify
 from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token, get_jwt, \
-get_jwt_identity, unset_jwt_cookies 
+get_jwt_identity, unset_jwt_cookies
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -46,7 +46,9 @@ def create_token():
         
         access_token = create_access_token(identity = row[0])
 
-    return jsonify({'access_token': access_token}), 200
+    response = jsonify({'access_token': access_token})
+    response.headers.add('Authorization', f'Bearer {access_token}')
+    return response, 200
 
 @auth_bp.route('/logout', methods=['POST'])
 def logout():

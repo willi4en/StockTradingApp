@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Blueprint, request, jsonify, session
-from flask_jwt_extended import jwt_required 
+from flask_jwt_extended import decode_token, jwt_required, get_jwt_identity, get_current_user
 
 account_bp = Blueprint('account', __name__)
 
@@ -32,3 +32,10 @@ def create_account():
         conn.commit()
 
     return jsonify({'message': 'User created successfully'}), 201
+
+@account_bp.route('/user', methods=['GET'])
+@jwt_required()
+def get_user():
+    user_id = get_jwt_identity()
+    return jsonify({'user_id': user_id}), 201
+   
