@@ -1,0 +1,55 @@
+
+.ruleObject-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    flex-direction: row;
+    padding: 4px;
+}
+
+.select-container {
+    border-radius: 8px;
+    border-color: rgb(255, 255, 255, 0.8);
+    border-width: 2px;
+    border-style: solid;
+    background-color: transparent;
+    color: rgb(255, 255, 255, 0.8);
+    margin-right: 4px;
+}
+
+.select-container:hover {
+    cursor: pointer;
+}
+
+.select-option {
+    color: black;
+    cursor: pointer;
+}
+
+.value-container {
+    border-radius: 8px;
+    border-color: rgb(255, 255, 255, 0.8);
+    border-width: 2px;
+    border-style: solid;
+    background-color: transparent;
+    color: rgb(255, 255, 255, 0.8);
+    margin-right: 4px;
+    width: 100%;
+}
+
+.deleteBtn {
+    border: none;
+    border-radius: 4px;
+    color: black;
+    height: 30px;
+    width: 72px;
+    text-align: center;
+    background-color: white;
+}
+
+.deleteBtn:hover {
+    background-color: #dc3545;
+    color: white;
+}
