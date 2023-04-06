@@ -1,0 +1,79 @@
+
+.algorithmObject-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    border-radius: 8px;
+    border-color: rgb(255, 255, 255, 0.8);
+    border-width: 2px;
+    border-style: solid;
+    padding: 4px;
+}
+
+.objectHeader-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.algorithmObject-label {
+    font-size: 18px;
+    color: white;
+    margin-left: 4px;
+    align-self: center;
+}
+
+.stock-input {
+    border-radius: 8px;
+    border-color: rgb(255, 255, 255, 0.8);
+    border-width: 2px;
+    border-style: solid;
+    background-color: transparent;
+    color: rgb(255, 255, 255, 0.8);
+    margin-right: 4px;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.algorithmObject-deleteBtn {
+    border: none;
+    border-radius: 4px;
+    color: black;
+    height: 30px;
+    width: 72px;
+    text-align: center;
+    background-color: white;
+}
+
+.algorithmObject-deleteBtn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.algorithmObject-addBtn {
+    border: none;
+    border-radius: 4px;
+    color: black;
+    height: 30px;
+    width: 72px;
+    text-align: center;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.algorithmObject-addBtn:hover {
+    background-color: rgb(86, 219, 121);
+    color: white;
+}
+
+.algBtn-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-left: auto;
+}

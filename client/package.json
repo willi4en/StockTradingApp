@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start-frontend": "react-scripts start",
-    "start-backend": "cd ../server && flask run --debug",
+    "start-backend": "cd ../server && flask run --debugger",
     "build": "react-scripts build"
   },
   "eslintConfig": {
